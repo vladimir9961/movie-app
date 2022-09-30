@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/custom.css">
+    <title>Login</title>
+</head>
+
+<body id="login-page" class="dark-theme">
+    <!-- <form> -->
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light" w3-include-html="../navbar.html"></nav>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+    </script>
+    <script>
+        includeHTML();
+    </script>
+    <!-- NAV END -->
+    <div class="h-100 d-flex align-items-center justify-content-center" id="login-form">
+        <form id="form">
+            <div class="mb-3">
+                <legend class="d-flex align-items-center justify-content-center">Login</legend>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input type="username" class="form-control" id="username" autocomplete="off" aria-describedby="username"
+                    placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <button type="submit" id="login" class="btn btn-primary">Submit</button>
+                <p class="text-muted mt-3">Still don't have an account? Register <a
+                        href="https://www.themoviedb.org/signup" target="_blank">Here !</a></p>
+            </div>
+            <div class="mb-3">
+                <label class="container d-flex justify-content-center align-items-center">
+                    <span class="me-3">Remember me</span>
+                    <input id="remember-me" type="checkbox">
+                    <div class="checkmark"></div>
+                </label>
+            </div>
+        </form>
+    </div>
+    <!-- </form> -->
+    <div class="position-fixed" id="theme-holder">
+        <div class="selector d-flex">
+            <label class="switch">
+                <input type="checkbox" id="input-theme" data-switch-theme>
+                <span class="slider" id="slider-theme"></span>
+            </label>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="../js/user_exist/login.js" type="module"></script>
+    <script src="../js/user_account_data.js" type="module"></script>
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>

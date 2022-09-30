@@ -1,0 +1,281 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="stylesheet" href="../css/slider.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <title>TV</title>
+</head>
+
+<body class="dark-theme">
+    <main class="d-flex display-movie-tv">
+        <div class="main-container col-lg-12">
+            <div class="row" style="margin-right: 0;">
+                <div class="button-side">
+                    <button></button>
+                </div>
+                <div class="col-md-3 col-xxl-2 side" id="side-bar" style="max-width: 300;">
+                    <div class="text-white aside" style="
+                    min-width: 200px;">
+                        <div>
+                            <h5 class="margin">Sort Resoults By</h5>
+                            <select class="form-select form-select-sm " aria-label=".form-select-sm example"
+                                data-sort-resoults>
+                                <option value="popularity.asc">Popularity Ascending</option>
+                                <option value="popularity.desc">Popularity Descending</option>
+                                <option value="vote_average.desc">Rating Descending</option>
+                                <option value="vote_average.asc">Rating Ascending</option>
+                                <option value="release_date.desc">Release Date Descending</option>
+                                <option value="release_date.asc">Release Date Ascending</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <!-- GENRES -->
+                        <div>
+                            <h4 class="genres" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                Genres
+                            </h4>
+                            <script>
+                                let btn = document.querySelector('.genres');
+                                btn.addEventListener('click', (e) => {
+                                    console.log(e.target.childNodes[1]);
+                                    if (e.target.className === "genres collapsed") {
+                                        e.target.childNodes[1].style.webkitTransform = 'rotate(' + 0 + 'deg)';
+                                        console.log('nee');
+                                    } else {
+                                        e.target.childNodes[1].style.webkitTransform = 'rotate(' + 90 + 'deg)';
+                                        console.log('da');
+                                    }
+                                })
+                            </script>
+                            <div class="collapse" id="collapseExample">
+                                <hr>
+                                <ul class="nav nav-pills flex-column" data-genres>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <!-- CALENDARS -->
+                        <div class="calendars">
+                            <div>
+                                <h5 class="margin">Calendar</h5>
+                                <label for="start">From</label>
+                                <input type="date" name="begin" placeholder="" value="" id="calendar-start">
+                                <label for="end">To</label>
+                                <input type="date" name="end" placeholder="" value="" id="calendar-end">
+                            </div>
+                        </div>
+                        <!-- USER SCORE MINIMUM USER VOTES AND RUNTIME -->
+                        <hr>
+                        <div>
+                            <h5>User Score</h5>
+                            <div slider id="slider-distance">
+                                <div>
+                                    <div inverse-left style="width:70%;"></div>
+                                    <div inverse-right style="width:70%;"></div>
+                                    <div range style="left:0%;right:0%;"></div>
+                                    <span thumb style="left:0%;"></span>
+                                    <span thumb style="left:100%;"></span>
+                                    <div sign style="left:0%;">
+                                        <span id="value">0</span>
+                                    </div>
+                                    <div sign style="left:100%;">
+                                        <span id="value">10</span>
+                                    </div>
+                                </div>
+                                <input id="range-user-score-left" type="range" value="0" max="10" min="0" step="1"
+                                    oninput="
+                    this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                    let value = (this.value/parseInt(this.max))*100
+                    var children = this.parentNode.childNodes[1].childNodes;
+                    children[1].style.width=value+'%';
+                    children[5].style.left=value+'%';
+                    children[7].style.left=value+'%';children[11].style.left=value+'%';
+                    children[11].childNodes[1].innerHTML=this.value;" />
+
+                                <input id="range-user-score-right" type="range" value="10" max="10" min="0" step="1"
+                                    oninput="
+                    this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                    let value = (this.value/parseInt(this.max))*100
+                    var children = this.parentNode.childNodes[1].childNodes;
+                    children[3].style.width=(100-value)+'%';
+                    children[5].style.right=(100-value)+'%';
+                    children[9].style.left=value+'%';children[13].style.left=value+'%';
+                    children[13].childNodes[1].innerHTML=this.value;" />
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div id="minimum-vote">
+                            <h5>Minimum User Votes</h5>
+                            <input type="range" min="0" max="10" value="0" step="1"
+                                class="styled-slider slider-progress" id="input">
+                            <div id="output"></div>
+                        </div>
+                        <script>
+                            for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+                                e.style.setProperty('--value', e.value);
+                                e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+                                e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+                                e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+                            }
+
+                        </script>
+                        <hr>
+                        <div>
+                            <h5>Runtime</h5>
+                            <div slider id="slider-distance">
+                                <div>
+                                    <div inverse-left style="width:70%;"></div>
+                                    <div inverse-right style="width:70%;"></div>
+                                    <div range style="left:0%;right:0%;"></div>
+                                    <span thumb style="left:0%;"></span>
+                                    <span thumb style="left:100%;"></span>
+                                    <div sign style="left:0%;">
+                                        <span id="value">0</span>
+                                    </div>
+                                    <div sign style="left:100%;">
+                                        <span id="value">390</span>
+                                    </div>
+                                </div>
+                                <input id="runtime-left" type="range" value="0" max="390" min="0" step="15" oninput="
+                                        this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);
+                                        let value = (this.value/parseInt(this.max))*100
+                                        var children = this.parentNode.childNodes[1].childNodes;
+                                        children[1].style.width=value+'%';
+                                        children[5].style.left=value+'%';
+                                        children[7].style.left=value+'%';children[11].style.left=value+'%';
+                                        children[11].childNodes[1].innerHTML=this.value;" />
+
+                                <input id="runtime-right" type="range" value="390" max="390" min="15" step="15" oninput="
+                                        this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));
+                                        let value = (this.value/parseInt(this.max))*100
+                                        var children = this.parentNode.childNodes[1].childNodes;
+                                        children[3].style.width=(100-value)+'%';
+                                        children[5].style.right=(100-value)+'%';
+                                        children[9].style.left=value+'%';children[13].style.left=value+'%';
+                                        children[13].childNodes[1].innerHTML=this.value;" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xxl-10">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- NAVBAR -->
+                                    <nav w3-include-html="../navbar.html" class="navbar navbar-expand-xl navbar-light"
+                                        id="navbar">
+                                        </nan>
+                                        <script>
+
+                                            function includeHTML() {
+                                                var z, i, elmnt, file, xhttp;
+                                                /* Loop through a collection of all HTML elements: */
+                                                z = document.getElementsByTagName("*");
+                                                for (i = 0; i < z.length; i++) {
+                                                    elmnt = z[i];
+                                                    /*search for elements with a certain atrribute:*/
+                                                    file = elmnt.getAttribute("w3-include-html");
+                                                    if (file) {
+                                                        /* Make an HTTP request using the attribute value as the file name: */
+                                                        xhttp = new XMLHttpRequest();
+                                                        xhttp.onreadystatechange = function () {
+                                                            if (this.readyState == 4) {
+                                                                if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                                                                if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                                                                /* Remove the attribute, and call this function once more: */
+                                                                elmnt.removeAttribute("w3-include-html");
+                                                                includeHTML();
+                                                            }
+                                                        }
+                                                        xhttp.open("GET", file, true);
+                                                        xhttp.send();
+                                                        /* Exit the function: */
+                                                        return;
+                                                    }
+                                                }
+                                            }
+                                            //NAVBAR SCROLL 
+
+                                            window.addEventListener('load', function () {
+
+                                                var lastScrollTop;
+                                                navbar = document.getElementById('navbar');
+                                                window.addEventListener('scroll', function () {
+                                                    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                                                    if (scrollTop > 10) {
+                                                        navbar.style.position = 'fixed';
+                                                        navbar.style.background = 'rgba(26 23 30)';
+
+                                                    } else {
+                                                        navbar.style.position = 'sticky';
+                                                        navbar.style.background = 'none';
+                                                    }
+                                                    if (scrollTop > lastScrollTop) {
+                                                        navbar.style.top = '-80px';
+                                                    }
+                                                    else {
+                                                        navbar.style.top = '0';
+                                                    }
+                                                    lastScrollTop = scrollTop;
+                                                });
+                                            })
+                                        </script>
+                                        <script>
+                                            includeHTML();
+                                        </script>
+                                        <!-- NAV END -->
+                                </div>
+                                <div class="row">
+                                    <div id="show">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" data-pagination>
+
+                        </div>
+                    </div>
+                    <a href="#top" class="btn-scroll"></a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </main>
+    <div class="position-fixed" id="theme-holder">
+        <div class="selector d-flex">
+            <label class="switch">
+                <input type="checkbox" id="input-theme" data-switch-theme>
+                <span class="slider" id="slider-theme"></span>
+            </label>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary sticky-top btn-genre" data-load-more>Load More</button>
+    <button type="button" class="btn btn-primary sticky-top btn-genre" data-search-by-genres>SEARCH</button>
+    <script>
+        document.querySelector(".button-side").addEventListener('click', (e) => {
+            let sideBar = document.querySelector("#side-bar");
+            sideBar.classList.toggle("fade-side");
+            e.target.parentElement.classList.toggle("move")
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../js/user_account_data.js"></script>
+    <script type="module" src="../js/user_exist/logout.js"></script>
+    <script type="module" src="../js/fetch.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>

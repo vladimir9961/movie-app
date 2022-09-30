@@ -1,0 +1,99 @@
+<!-- NAVBAR -->
+<div class="container-fluid col-xl-12 navbar-mobile">
+    <a class="navbar-brand col-lg-2" href="../">
+    </a>
+    <div class="collapse navbar-collapse col-md-8 col-lg-8" id="navbarSupportedContent">
+        <div class="d-flex col-12">
+            <ul class="navbar-nav me-auto mb-2 col-md-6 col-xl-3 mb-lg-0 flex-sm-row" id="nav-items">
+                <li class="nav-item dropdown" id="navbar-item">
+                    <a class="nav-link" data-bs-toggle="dropdown" href="javascript:void(0);" role="button"
+                        aria-expanded="false">Movies</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../movies/?popular">
+                                <p>Popular</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../movies/?now_playing">
+                                <p>Now Playing</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../movies/?upcoming">
+                                <p>Upcoming</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../movies/?top_rated">
+                                <p>Top Rated</p>
+                            </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown" id="navbar-item">
+                    <a class="nav-link" data-bs-toggle="dropdown" href="javascript:void(0);" role="button"
+                        aria-expanded="false">
+                        TV Shows
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../tv/?popular">
+                                <p>Popular</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../tv/?airing_today">
+                                <p>Airing Today</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../tv/?on_the_air">
+                                <p>On TV</p>
+                            </a></li>
+                        <li><a class="dropdown-item" href="../tv/?top_rated">
+                                <p>Top Rated</p>
+                            </a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" id="navbar-item">
+                    <a class="nav-link" href="../person">People</a>
+                </li>
+                <li class="nav-item" id="navbar-item">
+                    <a class="nav-link" href="../about/" tabindex="-1" aria-disabled="true">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-2 d-flex col-md-2 col-xl-2" id="buttons-right">
+        <div class="col-12 user-bar d-flex">
+            <div class="col-12 d-flex">
+                <div class="btn-group dropstart" id="user_bar">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="" alt="" id="user_avatar">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="user-data">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <h5 id="user_name">
+                                </h5>
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="../">Home</a></li>
+                        <li><a class="dropdown-item" href="../lists">Lists</a>
+                        </li>
+                        <li><a class="dropdown-item" href="../watchlist">Watchlist</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" id="logout" href="#"><span>Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group dropstart" id="guest_bar">
+                    <a class="btn btn-primary" href="../login/" role="button">Sign in</a>
+                    <a class="btn btn-primary" href="https://www.themoviedb.org/signup" target="_blank"
+                        role="button">Sign
+                        up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    </button>
+</div>
+<!-- NAV END -->
