@@ -1,0 +1,144 @@
+#login-page {
+
+    .navbar {
+        position: fixed;
+        width: 100%;
+    }
+
+    #buttons-right {
+        div {
+            #form-search-movie {
+                display: none !important;
+            }
+        }
+    }
+
+    #login-form {
+        #form {
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            color: $textMainCol;
+            box-shadow: inset 0px 0px 1.2px 1px;
+            animation: mymove 1s ease-in;
+            position: relative;
+
+            div {
+
+                &:last-child {
+                    padding: 1rem 0 0 0;
+                    margin: 0 !important;
+                }
+
+                legend {
+                    font-size: 32px;
+                    font-weight: 600;
+                    padding: 1rem;
+                }
+
+                input {
+                    background-color: $primary-col;
+                    color: $textMainCol;
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+
+                button {
+                    width: 100%;
+                    background: $btn-seccondary;
+                    border: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-top: 1rem;
+
+                    &:hover {
+                        background: $btn-primary;
+                    }
+                }
+
+                p {
+                    a {
+                        color: $btn-primary;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            .container {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                font-size: 20px;
+                user-select: none;
+            }
+
+            .checkmark {
+                position: relative;
+                top: 0;
+                left: 0;
+                height: 1em;
+                width: 1em;
+                background-color: #ccc;
+                transition: all 0.3s;
+                border-radius: 5px;
+            }
+
+            .container input:checked~.checkmark {
+                background-color: $btn-primary;
+                animation: pop 0.5s;
+                animation-direction: alternate;
+            }
+
+            .checkmark:after {
+                content: "";
+                position: absolute;
+                display: none;
+            }
+
+            .container input:checked~.checkmark:after {
+                display: block;
+            }
+
+            .container .checkmark:after {
+                left: 7px;
+                top: 3px;
+                width: 5px;
+                height: 11px;
+                border: solid white;
+                border-width: 0 0.15em 0.15em 0;
+                transform: rotate(45deg);
+            }
+
+            @keyframes pop {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(0.9);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+
+@keyframes mymove {
+    from {
+        bottom: -200px;
+    }
+
+    to {
+        bottom: 0px;
+    }
+}

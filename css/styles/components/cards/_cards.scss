@@ -1,0 +1,197 @@
+@import "../../utilities/variables";
+
+
+
+
+.poster-card {
+    img {
+        max-width: 220px;
+    }
+}
+
+.card-id {
+    position: relative;
+    height: fit-content;
+
+    &:hover {
+
+        img {
+            transition: transform 0.6s;
+            z-index: 9;
+            transform: scale(1.01);
+            filter: brightness(90%);
+
+            &::after {
+                transform: scale(1.01);
+                color: #000;
+            }
+        }
+
+        .play {
+            ::after {
+                transform: scale(1.1);
+            }
+        }
+
+        .card-body {
+            transform: scale(1);
+            z-index: 9;
+            transition: all 0.5s;
+        }
+    }
+
+    a {
+        color: $textMainCol;
+        display: grid;
+        text-decoration: none;
+
+        .play {
+            img {
+                width: 370px;
+            }
+        }
+
+        img {
+            filter: brightness(60%);
+            border-radius: 8px;
+            width: auto;
+        }
+
+        .no-img {
+            height: 330px;
+            width: 220px;
+        }
+
+        #canvas-div {
+            margin: 0.5rem;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #progress-circle {
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                z-index: 10;
+            }
+
+            span {
+                position: absolute;
+                z-index: 11;
+                color: rgb(255 255 255);
+                font-size: 12px;
+                font-weight: 900;
+                left: 8px;
+
+                small {
+                    font-size: 8px;
+                    position: absolute;
+                    font-weight: 900;
+                }
+
+            }
+        }
+    }
+
+    .card-body {
+        min-width: 12rem;
+        margin-right: 5px;
+        position: absolute;
+        bottom: 0;
+        padding: 0rem 1rem;
+        width: 100%;
+        transform: scale(0.9);
+
+        div {
+            color: $textMainCol;
+
+            .title-holder {
+                h5 {
+                    cursor: default;
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+
+            .card-text {
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.card-title {
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.options .nav-link {
+    color: white;
+
+    &::before {
+        display: inline-block;
+        font-size: 2rem;
+        padding: 0.3rem 0.2rem;
+        margin: 0;
+        cursor: pointer;
+        font-family: FontAwesome;
+        content: "\f0ca";
+        font-size: 16px;
+    }
+}
+
+.options .nav-link::after {
+    display: none;
+}
+
+//STARS
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}

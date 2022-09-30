@@ -1,0 +1,59 @@
+.column_wrapper {
+    display: flex;
+}
+
+.column_wrapper>div {
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.column_wrapper div.response {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    min-height: 50px;
+    word-wrap: break-word;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+p {
+    word-break: break-word;
+}
+
+label {
+    display: block;
+}
+
+div.pad,
+input+label,
+textarea+label {
+    margin-top: 20px;
+}
+
+textarea:disabled,
+input[type="text"]:disabled,
+input[type="password"]:disabled {
+    opacity: 0.5;
+}
+
+textarea,
+input[type="text"],
+input[type="password"] {
+    box-sizing: border-box;
+    outline: none;
+    width: 100%;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    height: 2.4em;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+textarea {}
+
+input[type="text"],
+input[type="password"] {}

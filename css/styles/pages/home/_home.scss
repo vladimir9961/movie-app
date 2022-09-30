@@ -1,0 +1,383 @@
+#home-page {
+    #navbar {
+        margin: 0;
+    }
+}
+
+.bgimage {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgb(0 0 0 / 60%), rgb(0 0 0 / 60%)), url(../css/img/heroLg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .container {
+        height: 100%;
+
+        .row {
+            height: 100%;
+            display: flex;
+            align-content: center;
+        }
+    }
+}
+
+//FORM START
+.form {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    isolation: isolate;
+    margin-bottom: 2rem;
+
+    .input {
+        height: 52px;
+        color: $textMainCol;
+        width: 100%;
+        margin-inline: 3rem;
+        background: none;
+        border: none;
+
+        &:focus {
+            outline: none;
+
+            ~.search {
+                fill: $textSecCol;
+            }
+
+            ~.fancy-bg {
+                border: 1px solid $textSecCol;
+                background: transparent;
+            }
+        }
+
+        &:invalid {
+            ~.close-btn {
+                opacity: 0;
+            }
+        }
+
+        &:valid {
+            ~.close-btn {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .fancy-bg {
+        position: absolute;
+        width: 100%;
+        inset: 0;
+        background: $seccondary-col;
+        border-radius: 30px;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+
+    label {
+        width: 100%;
+        padding: 0.8em;
+        height: 40px;
+        padding-inline: 3rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .search,
+    .close-btn {
+        position: absolute;
+    }
+
+    .search {
+        fill: $textMainCol;
+        left: 1rem;
+
+        svg {
+            width: 17px;
+            display: block;
+        }
+    }
+
+    .close-btn {
+        border: none;
+        right: 3rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        padding: 0.1em;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $textSecCol;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+//FORM END
+.projects div {
+    animation-name: fade-in;
+    animation-fill-mode: both;
+    animation-duration: .5s;
+}
+
+$animationDelay: 1;
+
+@for $i from 1 through 15 {
+    .projects div:nth-of-type(#{$i}) {
+        animation-delay: 1s;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.bgimage {
+    #main-text {
+        animation: myAnim 2s ease 0s 1 normal forwards;
+        position: relative;
+        text-shadow: 2px 2px #333;
+
+        h1 {
+            color: $textMainCol;
+        }
+
+        h3 {
+            color: $textMainCol;
+        }
+    }
+}
+
+#search-div {
+    animation: myAnim 2s ease 0s 1 fade-in;
+}
+
+@keyframes myAnim {
+    0% {
+        transform: translateX(-250px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+// SECTION WITH CARDS
+#home {
+    .container {
+        div {
+            .d-flex {
+
+                .holder {
+                    gap: 0.4rem;
+                    // height: 367px;
+
+                    &::-webkit-scrollbar-track {
+                        border-radius: 10px;
+                        background: transparent;
+                    }
+
+                    &::-webkit-scrollbar {
+                        height: 8px;
+                        cursor: pointer;
+                        background: transparent;
+
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 10px;
+                        background-color: $textSecCol;
+                    }
+                }
+
+                #popular_movies {
+                    display: flex;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    padding: 15px 0;
+                }
+
+                #popular_tv {
+                    display: none;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+                    padding: 15px 0;
+                    position: relative;
+                    min-height: 300px;
+                    overflow-y: hidden;
+                }
+
+                #trending-day {
+                    display: flex;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    padding: 15px 0;
+                }
+
+                #trending-week {
+                    display: none;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    padding: 15px 0;
+                    position: relative;
+                    min-height: 300px;
+                }
+
+                #latest-tv {
+                    display: flex;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    padding: 15px 0;
+                    height: 100%;
+                    align-items: center;
+                }
+
+                #latest-movie {
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    padding: 15px 0;
+                    // height: 318px;
+                }
+
+                align-items: flex-end;
+
+                h2 {
+                    font-weight: 800;
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        .popular-div {
+            margin-top: 3rem;
+            padding: 35px 20px;
+        }
+
+        .trending {
+            margin-top: 3rem;
+            padding: 35px 20px;
+        }
+
+        .recomended {
+            margin-top: 3rem;
+            position: relative;
+
+            .cards-holder {
+                position: relative;
+                height: 400px;
+                background: linear-gradient(270deg, rgb(2 0 36 / 65%) 100%, rgb(221 221 232) 100%);
+                border-radius: 8px;
+
+                .d-flex {
+                    height: 100%;
+                    padding: 0 20px;
+
+                    .holder {
+                        display: flex;
+                        height: 100%;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .hover-img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-size: 100% 100% !important;
+                z-index: -1;
+                transition: all 0.5s;
+                border-radius: 8px;
+            }
+
+            .play {
+                cursor: pointer;
+
+                h5 {
+                    font-size: 18px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+
+                &::after {
+                    font-size: 3rem;
+                    font-family: FontAwesome;
+                    content: "\f04b";
+                    color: rgb(240 255 255);
+                    z-index: 1;
+                    position: absolute;
+                    left: 43%;
+                    bottom: 41%;
+                }
+            }
+        }
+    }
+}
+
+.loader-container {
+    width: 100%;
+    height: 283px;
+    position: absolute;
+    z-index: 9999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: $btn-primary;
+        display: grid;
+        place-items: center;
+        animation: zoomin 1.5s infinite alternate-reverse;
+        position: relative;
+
+        .inner {
+            background-color: #212121;
+            width: 80%;
+            height: 80%;
+            border-radius: 100%;
+        }
+    }
+}
+
+@keyframes zoomin {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 100px 20px rgb(16, 71, 71);
+    }
+
+    100% {
+        transform: scale(1.5);
+        box-shadow: 0 0 100px 20px #000;
+    }
+}

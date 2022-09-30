@@ -1,0 +1,243 @@
+@import "../../utilities/variables";
+
+#show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+
+    .card-id {
+        .card-body {
+            a {
+                display: grid;
+            }
+        }
+    }
+}
+
+.nav {
+    .dropdown-menu {
+
+        z-index: 100000;
+    }
+}
+
+.hide {
+    display: none !important;
+}
+
+.display-movie-tv {
+
+    .main-container {
+
+        .row {
+
+            .side {
+                height: fit-content;
+
+                .aside {
+                    div {
+                        .margin {
+                            margin-bottom: 1rem;
+                        }
+                    }
+
+                    z-index: 9;
+                    padding: 12px;
+                    position: fixed;
+                    overflow-y: scroll;
+                    height: fit-content;
+                    border-radius: 0 0 8px 8px;
+                    background: $seccondary-col;
+
+                    &::-webkit-scrollbar-track {
+                        border-radius: 10px;
+                        background: transparent;
+                    }
+
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                        background: transparent;
+
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 10px;
+                        background-color: #555;
+                    }
+                }
+
+                div {
+                    #filters {
+                        user-select: none;
+                    }
+
+                    .form-select {
+                        background: $seccondary-col;
+                        color: $textMainCol;
+                        cursor: pointer !important;
+
+                        option {
+                            cursor: pointer;
+
+                            &:hover {
+                                background-color: red;
+                            }
+                        }
+                    }
+
+                    div {
+
+
+                        .genres {
+                            position: relative;
+                            cursor: pointer;
+
+                            &::after {
+                                font-family: FontAwesome;
+                                content: "\f0da";
+                                position: absolute;
+                                right: 0;
+                                transform: var(--rotation);
+                            }
+
+                            p {
+                                position: absolute;
+                                right: 0px;
+                                margin: 0;
+                                transition: all 0.5s ease-in-out;
+                            }
+
+                            #arrow {
+                                &::before {
+                                    font-family: "FontAwesome";
+                                    content: "\f061";
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        h5 {
+                            cursor: pointer;
+                            margin: 0;
+                            position: relative;
+                            align-items: center;
+                            display: flex;
+                            background: none;
+                            border: none;
+                            width: 100%;
+                            justify-content: space-between;
+                        }
+
+
+                        .collapse {
+                            .nav-pills {
+
+                                li {
+                                    cursor: pointer;
+                                    display: inline-flex;
+                                    position: relative;
+                                    box-shadow: inset 0px -0.1px 0;
+
+                                    &:last-child {
+                                        box-shadow: none;
+                                    }
+
+                                    &:hover {
+                                        a {
+                                            color: $textMainCol
+                                        }
+                                    }
+
+                                    a {
+                                        padding: 8px;
+                                        text-transform: uppercase;
+                                        text-decoration: none;
+                                        color: rgb(128 128 128);
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                    .calendars {
+                        position: relative;
+
+                        p {
+                            position: absolute;
+                            right: 0px;
+                            margin: 0;
+                            transition: all 0.5s ease-in-out;
+                        }
+
+                        #arrow {
+                            &::before {
+                                font-family: "FontAwesome";
+                                content: "\f061";
+                                font-size: 12px;
+                            }
+                        }
+
+                        div {
+                            display: grid;
+
+                            label {
+                                &:hover {
+                                    color: none !important;
+                                }
+                            }
+
+                            input {
+                                background: $seccondary-col;
+                                color: $textMainCol;
+                                box-shadow: none;
+                                border: 1px solid;
+                                padding: 5px;
+                                margin: 10px 0;
+                                font-size: $m;
+                                font-weight: 800;
+                                color-scheme: dark;
+                                border: none;
+                            }
+                        }
+                    }
+
+                    .active-genre {
+
+                        a {
+                            &::after {
+                                font-family: "FontAwesome";
+                                content: "\f058";
+                                position: absolute;
+                                right: 0;
+                                color: $btn-primary;
+                                font-size: $lg;
+                            }
+
+                            color: $btn-primary  !important;
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+    }
+}
+
+.btn-genre {
+    z-index: 99999;
+    background: rgb(235, 28, 36) !important;
+    border: none;
+    font-weight: 600;
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    display: none;
+}

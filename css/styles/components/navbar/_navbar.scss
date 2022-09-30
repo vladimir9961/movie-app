@@ -1,0 +1,231 @@
+@import "../../utilities/variables";
+
+.navbar {
+    display: flex;
+    margin-bottom: $xl;
+    position: sticky;
+    transition: top 0.3s;
+    z-index: 1000;
+    right: 0;
+    padding: 0;
+
+    .container-fluid {
+        box-shadow: inset 0px -1px 0;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        .navbar-brand {
+            img {
+                height: 30px;
+            }
+        }
+
+
+
+        .navbar-toggler {
+            position: relative;
+            border: none;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:after {
+                font-family: "FontAwesome";
+                content: "\f0c9";
+                color: $textSecCol;
+                font-size: 18px;
+            }
+
+            .navbar-toggler-icon {
+                color: $textMainCol;
+            }
+        }
+
+        div {
+
+            .user-bar {
+                z-index: 20;
+            }
+
+            #user_bar {
+                display: none;
+
+                #dropdownMenuButton1 {
+                    &::before {
+                        display: none;
+                    }
+
+                    img {
+                        border-radius: 50%;
+                    }
+                }
+
+                #user-data {
+                    padding: 0;
+                    background: $seccondary-col;
+
+                    li {
+                        &:first-child {
+                            .dropdown-item {
+                                &:hover {
+                                    color: $textMainCol;
+                                    cursor: default;
+                                }
+
+                            }
+                        }
+
+                        .dropdown-item {
+                            color: $textMainCol;
+                            font-size: $ml;
+                            font-weight: 900;
+                            padding: 10px;
+
+                            h5 {
+                                text-transform: capitalize;
+                                font-weight: 900;
+                                margin: 0;
+                            }
+
+                            &:hover {
+                                background: none;
+                                color: $btn-primary;
+                            }
+                        }
+
+                        hr {
+                            margin: 0;
+                            color: $textMainCol;
+                        }
+                    }
+                }
+            }
+
+
+
+            #guest_bar {
+                display: none;
+                gap: 1rem;
+
+                a {
+                    background: $btn-seccondary;
+                    border: none;
+                    font-size: 16px;
+                    font-weight: 600;
+                    width: 80px;
+
+                    &:hover {
+                        background: $btn-primary;
+                    }
+                }
+            }
+
+            #buttons-right {
+                align-items: center;
+            }
+
+            .navbar-nav {
+                border: none;
+                width: 100%;
+
+
+                .nav-item {
+                    display: flex;
+                    align-items: center;
+
+                    .nav-link {
+                        border: none;
+                        font-size: 16px;
+                        font-weight: 900;
+
+                        &:hover {
+                            border: none;
+                            transform: scaleX(1);
+                            color: $btn-primary;
+                        }
+
+                        &:focus-visible {
+                            outline: none;
+                        }
+
+                        &:focus {
+                            color: $btn-primary;
+                        }
+
+                    }
+
+                    .dropdown-menu {
+                        background-color: $seccondary-col;
+                        padding: 0;
+
+                        li {
+
+                            a {
+                                font-size: $ml;
+                                font-weight: 800;
+                                padding: 0;
+
+                                &:focus {
+                                    background: none;
+                                    color: $btn-primary;
+                                }
+
+                                p {
+
+                                    &:last-child {
+                                        box-shadow: none;
+                                    }
+
+                                    box-shadow: inset 0px -0.1px 0 !important;
+                                    padding: 0.5rem 1rem;
+                                    margin: 0;
+                                    width: 100%;
+
+
+
+                                }
+
+
+
+                                &:hover {
+                                    color: $textMainCol;
+                                    background-color: $btn-primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+}
+
+.btn-secondary {
+    background: none;
+    border: none;
+
+    &:hover {
+        background: none;
+    }
+}
+
+.btn-check:focus+.btn-secondary,
+.btn-secondary:focus {
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+@keyframes search_bar {
+    from {
+        width: 150px;
+    }
+
+    to {
+        width: 250px;
+    }
+
+}

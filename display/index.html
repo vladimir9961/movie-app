@@ -1,0 +1,196 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/custom.css">
+    <title>Movie</title>
+</head>
+
+<body class="display dark-theme" id="background-img">
+    <div class="loader-holder">
+        <div class="loader"></div>
+    </div>
+    <div class="container-fluid" id="test">
+    </div>
+    <div class="shadow">
+        <button id="close"></button>
+        <iframe id="youtube" width="100%" height="100%">
+        </iframe>
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light" w3-include-html="../navbar.html"></nav>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+    </script>
+    <script>
+        includeHTML();
+    </script>
+    <!-- NAV END -->
+    <!-- --------------------------------- -->
+    <section id="display">
+        <div class="w-100" id="section-holder">
+            <div class="container">
+                <div class="row" id="description">
+                    <div class="col-md-6 col-sm-12" id="first-col">
+                        <div class="infromation-movie">
+                            <div class="d-flex">
+                                <h1 id="title"></h1>
+                            </div>
+                            <div class="d-inline-block">
+                                <span id="average_vote"></span>
+                                <span id="full_time"></span>
+                                <span id="year"></span>
+                            </div>
+                            <div class="d-inline-block col-12 col-xl-6">
+                                <span id="genres" class="fst-italic"></span>
+                            </div>
+                            <div class="row">
+                                <ul class="actions">
+                                    <li class="li_list">
+                                        <div class="dropdown">
+                                            <button id="add_to_list" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                title="Add to list!">
+                                            </button>
+                                            <ul class="hide dropdown-list" data-toggle-display>
+                                                <li class="list" id="new_list">
+                                                    <a href="../list/">Create new list</a>
+                                                </li>
+                                                <li class="list" id="find_list">
+                                                    <button id="btn_list">Add to one of your lists...</button>
+                                                    <ul class="hide" id="list-holder">
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="favorite" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        title="Add to favorite!"></li>
+                                    <li id="watchlist" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        title="Add to watchlist!"></li>
+                                    <!-- <li class="btn-group"> -->
+                                    <li class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false" id="stars_holder"
+                                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Rate!">
+                                    </li>
+                                    <ul class="dropdown-menu">
+                                        <li id="stars"></li>
+                                    </ul>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <p class="fst-italic text-muted" id="tagline"></p>
+                            </div>
+                            <div class="row">
+                                <h3 class="fw-bold">Overview</h3>
+                                <p id="overview"></p>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <div class="d-grid me-md-3">
+                                    <button class="btn btn-primary button-custom" type="button" id="trailer_btn">Watch
+                                        trailer</button>
+
+                                </div>
+                                <div class="d-grid ">
+                                    <button class="btn btn-primary button-custom" type="button" id="review_btn">See All
+                                        Reviews</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12" id="seccond-col">
+                        <div class="row" id="similar-holder">
+                            <h3 class="fw-bold p-0">Similar</h3>
+                            <div id="similar">
+                                <div class="shadow-div"></div>
+                            </div>
+                        </div>
+                        <div class="row actors">
+                            <h3 class="fw-bold p-0">Actors</h3>
+                            <div id="actors"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+    <div class="reviews-popup" id="coments">
+        <div class="container" id="reviews">
+            <h1 id="no_review">No Reviews!</h1>
+            <div class="close-holder">
+                <span id="close_comments"></span>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-center text-white" id="footer" get-footer="../footer.html"></footer>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("get-footer");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            elmnt.removeAttribute("get-footer");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+    </script>
+    <script>
+        includeHTML();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script type="module" src="../js/display/display_page.js"></script>
+    <script type="module" src="../js/user_account_data.js"></script>
+    <script type="module" src="../js/user_profile/add_to_list/get_all_user_lists.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+#perons-data {
+    h1 {
+        margin: 1rem 0;
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+}
+
+.table {
+    thead {}
+
+    tbody {
+        tr {
+            border-style: hidden;
+            box-shadow: inset 0px -2px 0;
+        }
+    }
+}

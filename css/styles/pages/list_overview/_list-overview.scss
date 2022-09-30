@@ -1,0 +1,94 @@
+#list-view-page {
+
+    .navbar {
+        margin: 0;
+    }
+
+    .user-info {
+        padding: 20px 0;
+        background: $seccondary-col;
+        color: $textMainCol;
+
+        .container {
+            .row {
+                #list-name {
+                    margin-left: 1rem;
+                    text-transform: uppercase;
+                }
+
+                #buttons-list {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    gap: 1rem;
+
+
+                    button {
+                        background: none;
+                        border: solid 1px;
+                        position: relative;
+
+                        &:hover {
+                            background-color: rgb(208, 33, 40);
+                            color: rgb(255 255 255);
+                        }
+                    }
+
+                    #new-list {
+                        padding-right: 30px;
+
+                        &::after {
+                            position: absolute;
+                            font-family: "FontAwesome";
+                            right: 8px;
+                            content: "\f055";
+                        }
+                    }
+
+                    #share {
+                        padding-right: 30px;
+
+                        &::after {
+                            position: absolute;
+                            font-family: "FontAwesome";
+                            right: 8px;
+                            content: "\f14d";
+                        }
+                    }
+                }
+
+                #user-logo {
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    .content-info {
+        background: $btn-primary;
+        padding: 20px 0;
+
+        .container {
+            .row {
+                .col>* {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .movies {
+        padding-top: 20px;
+
+        .container {
+            .row {
+                justify-content: center;
+                gap: 1rem;
+
+                .poster-card {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

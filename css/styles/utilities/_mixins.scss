@@ -1,0 +1,10 @@
+@mixin buttonBackground {
+    position: relative;
+    background: none;
+    border: solid 1px;
+    margin-bottom: 2rem;
+
+    &:hover {
+        background: $btn-primary;
+    }
+}
